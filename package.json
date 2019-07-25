@@ -13,7 +13,7 @@
         "import-loader"
     ],
     "author": "dyang;jie yang;damon yang;yang2015damon@outlook.com",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/damon-yang/dyang-import-loader/issues"
     },
