@@ -1,0 +1,24 @@
+{
+  "name": "dyang-import-loader",
+  "version": "1.0.0",
+  "description": "webpack import loader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damon-yang/dyang-import-loader.git"
+  },
+  "keywords": [
+    "webpack",
+    "dyang",
+    "import-loader"
+  ],
+  "author": "dyang;jie yang;damon yang;yang2015damon@outlook.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damon-yang/dyang-import-loader/issues"
+  },
+  "homepage": "https://github.com/damon-yang/dyang-import-loader#readme"
+}
