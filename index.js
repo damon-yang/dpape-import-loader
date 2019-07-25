@@ -14,6 +14,7 @@ const buildLibrar = (source,moduleName,global,libraryDirectory) => {
     let singleResult = '';
     components.map(v=>{
       const name = (v + '').trim();
+      if(!v) return;
       const arr = name.split('');
       /** 首字母 */
       const acronym = (arr[0] || '').toLocaleLowerCase();
@@ -38,7 +39,7 @@ module.exports = function(source){
     const libraryDirectory = options.libraryDirectory === undefined ? 'lib' : options.libraryDirectory;
     if(typeof moduleName === 'string') source = buildLibrar(source,moduleName,isGlobal,(typeof libraryDirectory === 'object' ? 'lib' : libraryDirectory));
     if(moduleName instanceof Array){      
-      moduleName.map(v=>{
+      moduleName.map(v=>{        
         const directoryName = typeof libraryDirectory === 'object' ? (libraryDirectory[v] || 'lib') : libraryDirectory; 
         source = buildLibrar(source,v,isGlobal,directoryName);
       });
