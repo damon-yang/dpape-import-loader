@@ -25,7 +25,7 @@ npm i dyang-import-loader -D
 ```
 
 ### Vant 配置用法
-<a href="https://youzan.github.io/vant">Vant文档网站</a>
+<a target="view_window" href="https://youzan.github.io/vant">Vant文档网站</a>
 ```javascript
     //注意:需要配置在最后webpack rules
     ...
@@ -40,6 +40,30 @@ npm i dyang-import-loader -D
             libraryDirectory:'es',
             /* 组件库名称 默认vue-dyangui*/
             libraryName:"vant"
+        }
+    }
+    ...
+```
+
+### 多个组件库使用方法
+
+```javascript
+    //注意:需要配置在最后webpack rules
+    ...
+    {
+        test: /\.(jsx|tsx|js|ts)$/,
+        exclude: /node_modules/,
+        loader: "dyang-import-loader",
+        options:{
+            /* 是否全局引入默认为true,需要按需引入设置为false*/
+            global:false,
+            /** 按需引入目录名称 默认lib*/
+           libraryDirectory:{
+                "vant":'es',
+                "vue-dyangui":'lib'
+            },
+            /* 组件库名称 默认vue-dyangui*/
+            libraryName:["vant","vue-dyangui"]
         }
     }
     ...
