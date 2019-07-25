@@ -6,6 +6,7 @@ npm i dyang-import-loader -D
 ```
 ### Loader options
 ```javascript
+    //注意:需要配置在最后webpack rules
     ...
     {
         test: /\.(jsx|tsx|js|ts)$/,
