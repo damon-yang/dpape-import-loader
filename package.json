@@ -1,6 +1,6 @@
 {
     "name": "dyang-import-loader",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "webpack import loader",
     "main": "index.js",
     "repository": {
@@ -9,7 +9,7 @@
     },
     "keywords": [
         "webpack",
-        "dyang",
+        "uixjs",
         "import-loader"
     ],
     "author": "dyang;jie yang;damon yang;yang2015damon@outlook.com",
@@ -17,5 +17,8 @@
     "bugs": {
         "url": "https://github.com/damon-yang/dyang-import-loader/issues"
     },
-    "homepage": "https://github.com/damon-yang/dyang-import-loader#readme"
+    "homepage": "https://github.com/damon-yang/dyang-import-loader#readme",
+    "dependencies": {
+        "loader-utils": "^2.0.0"
+    }
 }

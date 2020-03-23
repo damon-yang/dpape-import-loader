@@ -13,8 +13,6 @@ npm i dyang-import-loader -D
         exclude: /node_modules/,
         loader: "dyang-import-loader",
         options:{
-            /* 是否全局引入默认为true,需要按需引入设置为false*/
-            global:true,
             /** 按需引入目录名称 默认lib*/
             libraryDirectory:'lib',
             /* 组件库名称 默认vue-dyangui*/
@@ -34,8 +32,6 @@ npm i dyang-import-loader -D
         exclude: /node_modules/,
         loader: "dyang-import-loader",
         options:{
-            /* 是否全局引入默认为true,需要按需引入设置为false*/
-            global:false,
             /** 按需引入目录名称 默认lib*/
             libraryDirectory:'es',
             /* 组件库名称 默认vue-dyangui*/
@@ -55,8 +51,6 @@ npm i dyang-import-loader -D
         exclude: /node_modules/,
         loader: "dyang-import-loader",
         options:{
-            /* 是否全局引入默认为true,需要按需引入设置为false*/
-            global:false,
             /** 按需引入目录名称 默认lib*/
            libraryDirectory:{
                 "vant":'es',
@@ -67,6 +61,41 @@ npm i dyang-import-loader -D
         }
     }
     ...
+```
+
+
+### ElementUI使用方法
+
+```javascript
+    //注意:需要配置在最后webpack rules
+    ...
+    {
+        test: /\.(jsx|tsx|js|ts)$/,
+        exclude: /node_modules/,
+        loader: "dyang-import-loader",
+        options:{
+            /** 按需引入目录名称 默认lib*/
+           libraryDirectory:{
+                "vant":'es',
+                "vue-dyangui":'lib',
+                "element-ui": {
+                    componentName: "/lib",
+                    styleLibraryName: "/lib/theme-chalk",
+                    css: true
+                }
+            },
+            /* 组件库名称 默认vue-dyangui*/
+            libraryName:["vant","vue-dyangui","element-ui"]
+        }
+    }
+    ...
+    import { Button } from 'element-ui';
+    /** ===> */
+    var button = require('element-ui/lib/button');
+    require('element-ui/lib/theme-chalk/button.css');
+    /** ===> style:true */
+    var button = require('element-ui/lib/button');
+    require('element-ui/lib/theme-chalk/button/style.css');
 ```
 
 ### 组件库目录结构
