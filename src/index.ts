@@ -18,7 +18,7 @@ type loaderParams = {
 }
 
 const getComponentName = (component: string) => {
-    const arr = component.split('');
+    const arr = component.trim().split('');
     /** 首字母 */
     const acronym = arr[0]?.toLocaleLowerCase();
     arr.splice(0, 1);
@@ -34,9 +34,9 @@ const getComponentName = (component: string) => {
  * @param options 配置参数
  */
 const build = (source: string, libraryName: string, options: loaderParams | string) => {
-    const importReg = new RegExp(`import[\\s][\\{][^\\{\\}]+[\\}][\\s]from[\\s][\\'\\"]${libraryName}[\\'\\"][\\;]{0,1}`, "g");
+    const importReg = new RegExp(`import[\\s]{0,1}[\\{][^\\{\\}]+[\\}][\\s]{0,1}from[\\s]{0,1}[\\'\\"]${libraryName}[\\'\\"][\\;]{0,1}`, "g");
     const componentDirectory = typeof options === 'string' ? options : options.componentDirectory;
-    source = source.replace(importReg, (name) => {
+    source = source.replace(importReg, (name) => {        
         const matchReg = new RegExp(`[\\{][^\\{\\}]+[\\}]`, 'g');
         let items = name.match(matchReg);
         let resultItemStr = items ? items[0] : '';
@@ -55,7 +55,7 @@ const build = (source: string, libraryName: string, options: loaderParams | stri
             }
             resultList.push(`\nimport ${component} from '${libraryName}/${componentDirectory}/${componentFileName}';\nimport '${styleDirectory}';\n`);
         });
-        return '';
+        return resultList.join('');
     })
     return source;
 }

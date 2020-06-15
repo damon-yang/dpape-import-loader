@@ -1,8 +1,11 @@
 {
     "name": "dpape-import-loader",
-    "version": "1.0.3",
+    "version": "1.0.0",
     "description": "webpack import loader. UI libraries are introduced on demand",
     "main": "lib/index.js",
+    "scripts": {
+      "build": "node ./build/index.js"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/damon-yang/dpape-import-loader.git"
@@ -17,13 +20,14 @@
     "bugs": {
         "url": "https://github.com/damon-yang/dpape-import-loader/issues"
     },
+    "files": [
+      "lib"
+    ],
     "homepage": "https://github.com/damon-yang/dpape-import-loader#readme",
     "devDependencies": {
         "@types/loader-utils": "^2.0.0",
-        "loader-utils": "^2.0.0"
-    },
-    "dependencies": {
-        "element-ui": "^2.13.2",
-        "vue-dyangui": "^0.5.56"
+        "io-spin": "^0.4.1",
+        "loader-utils": "^2.0.0",
+        "uglify-js": "^3.9.4"
     }
 }
